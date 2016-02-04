@@ -1,0 +1,272 @@
+/*Fancy Ampersands
+ */
+
+@font-face {
+	font-family: Ampersand;
+	src: local('Palatino-Italic'),local('Garamond-Italic'), local('Baskerville-Italic'), local('GoudyOldStyleT-Italic');
+	unicode-range: U+26;
+}
+
+h1 {
+	font-family: Ampersand, Helvetica, sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* header */
+body > header {
+	width: 20%;
+	background-color: #2E5284;
+}
+
+body > header h1 {
+	color: white;
+	text-align: center;
+	margin-top: .5em;
+	font-family: Ampersand, Helvetica, sans-serif;
+}
+
+body > header figure {
+	margin: .5em 0;
+	text-align: center;
+}
+
+body > header figure img {
+	width: 50%;
+	border-radius: 50%;
+	border: 5px solid #6D86B3;
+}
+
+body > header p {
+	color: #fff;
+	text-align: center;
+}
+
+body > header nav {
+	margin-top: 2em;
+}
+
+body > header nav ul li {
+	padding: 1em 1.6em;
+	list-style-type: none;
+	vertical-align: middle;
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+body > header nav ul li:hover {
+	background-color: rgba(255,255,255,0.1);
+}
+
+body > header nav ul li a {
+	text-decoration: none;
+	color: #fff;
+}
+
+body > header nav ul li svg {
+	width: 10%;
+	height: auto;
+}
+
+a[href="#profile-picture"], a[href="#password"], a[href="#photo-albums"], a[href="#find-friends"] {
+	fill: #6D86B3;
+}
+
+/* main */
+main {
+	width: 80%;
+	padding: 0 2em;
+}
+
+
+/* first article */
+main > article:first-of-type {
+	margin-top: 1em;
+	padding: 2em;
+	background-color: #6D86B3;
+	color: #fff;
+}
+
+main > article:first-of-type header h1 {
+	font-size: 2em;
+}
+
+main > article:first-of-type header h1 span {
+	font-size: .8em;
+	font-weight: lighter;
+}
+
+main > article:first-of-type header h2 {
+	margin: .5em 0;
+	font-weight: lighter;
+	font-style: italic;
+}
+
+main > article:first-of-type p {
+	margin-top: 1em;
+}
+
+/* password */
+#password {
+	width: 25%;
+	margin: 2em 0;
+	padding: 1rem;
+	border: 2px solid #6D86B3;
+}
+
+#password header {
+	margin: 1em 0;
+}
+
+#password fieldset {
+	border: none;
+}
+
+#password fieldset legend {
+	margin: 1em 0;
+}
+
+#password fieldset label input {
+	display: block;
+	width: 100%;
+	margin: 1em 0;
+	border: none;
+	border-bottom: 2px inset #6D86B3;
+}
+
+#password fieldset label input:focus {
+    outline: none;
+}
+
+#password fieldset button {
+	margin: 1em 0;
+	padding: 1em;
+	background-color: #6D86B3;
+	color: white;
+	font-size: 1em;
+	border: none;
+	border-radius: .5em;
+}
+   
+
+/* photo-albums */
+#photo-albums {
+	margin: 2em 0;
+	padding: 2em 0;
+	text-align: center;
+	background-color: #6D86B3;
+}
+
+#photo-albums header {
+	margin: 0 0 1em 2em;	
+	color: white;
+	text-align: left;
+}
+
+#photo-albums figure {
+	width: 45%;
+	margin: 0 0.5em;
+	display: inline-block;
+	color: white;
+}
+
+#photo-albums figure img {
+	width: 100%;
+}
+
+
+/* footer */ 
+footer {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	background-color: #C7C7C7;
+	justify-content: space-between;
+}
+footer * {
+	color: white;
+}
+footer address {
+	order: 1;
+}
+
+footer ul li {
+	list-style-type: none;
+}
+
+
+/* mediaqueries */
+
+@media only screen and (max-width: 850px) {
+	
+	/* header */
+	body > header{
+		width: 100%;
+	}
+	
+	body > header figure img {
+		width: 25%;
+		border-radius: 50%;
+		border: 5px solid #6D86B3;
+	}
+
+
+	body > header nav {
+	     padding: 0; 
+	}
+	
+	body > header nav ul {
+		text-align: center;
+	    overflow: scroll;
+	    height: 30vh;
+	}
+
+	body > header nav ul li {
+	    display: inline-block;
+	    width: 40%;
+	}
+
+	body > header nav ul li svg {
+	    width: 1.5em;
+	    height: auto;
+	}
+	
+	/* main */
+	main {
+	    width: 100%;
+	}
+	/* footer */ 
+	footer {
+		flex-direction: column;
+		flex-wrap: wrap;
+		text-align: center;
+		font-size: .9em;
+		padding: .5em 0;
+	}
+
+	footer > nav, footer > ul {
+		margin-bottom: 1em;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	#photo-albums figure {
+	    width: 80%;
+	}
+}
