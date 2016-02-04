@@ -268,11 +268,6 @@ footer ul li {
 	    display: inline-block;
 	    width: 40%;
 	}
-
-	body > header nav ul li svg {
-	    width: 1.5em;
-	    height: auto;
-	}
 	
 	/* main */
 	main {
