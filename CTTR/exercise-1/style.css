@@ -96,7 +96,7 @@ body > header nav ul li:hover {
 
 body > header nav ul li a {
 	text-decoration: none;
-	fill: #4CBA9C;
+	fill: #fff;
 	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
