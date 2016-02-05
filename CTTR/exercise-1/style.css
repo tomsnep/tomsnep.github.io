@@ -69,8 +69,6 @@ body > header figure img {
 	width: 50%;
 	border-radius: 50%;
 	border: 5px solid #fff;
-	-webkit-transition: .5s all ease;
-	        transition: .5s all ease;
 }
 
 body > header p {
@@ -121,8 +119,6 @@ main > article:first-of-type {
 	padding: 2em;
 	border-bottom: 2px solid #97D5BC;
 	position: relative;
-	-webkit-transition: .5s all ease;
-	        transition: .5s all ease;
 }
 
 main > article:first-of-type header h1{
@@ -209,8 +205,6 @@ main > article:first-of-type a {
 	text-align: center;
 	background-color: #fff;
 	border-bottom: 2px solid #97D5BC;
-	-webkit-transition: .5s all ease;
-	        transition: .5s all ease;
 }
 
 #photo-albums header {
@@ -236,8 +230,6 @@ footer {
 	padding: 1rem;
 	background-color: #4CBA9C;
 	color: #fff;
-	-webkit-transition: .5s all ease;
-	        transition: .5s all ease;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -255,9 +247,8 @@ footer {
 
 footer *{
 	color: #fff;
-	-webkit-transition: .5s all ease;
-	        transition: .5s all ease;
 }
+
 footer address {
 	-webkit-box-ordinal-group: 2;
 	-webkit-order: 1;
