@@ -50,7 +50,8 @@ body > header {
 	border-left: 0;
 	border-top: 0;
 	color: #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 body > header:hover{
@@ -84,7 +85,8 @@ body > header figure img {
 	width: 50%;
 	border-radius: 50%;
 	border: 5px solid #EC185D;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 body > header p {
@@ -100,7 +102,8 @@ body > header nav ul li {
 	list-style-type: none;
 	vertical-align: middle;
 	border-bottom: 1px solid rgba(255,255,255,0.2);
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 body > header nav ul li:hover {
@@ -110,7 +113,8 @@ body > header nav ul li:hover {
 body > header nav ul li a {
 	text-decoration: none;
 	color: #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 body > header nav ul li svg {
@@ -136,7 +140,8 @@ main > article:first-of-type {
 	color: #000;
 	border: 2px solid #000;
 	position: relative;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 main > article:first-of-type:hover{
@@ -171,6 +176,7 @@ main > article:first-of-type a {
 #password {
 	width: 25%;
 	margin: 2em 0;
+	padding: 16px;
 	padding: 16px;
 	padding: 1rem;
 	border: 2px solid #000;
@@ -211,7 +217,8 @@ main > article:first-of-type a {
 	color: #000;
 	font-size: 1em;
 	border: 2px solid #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
    
 
@@ -223,7 +230,8 @@ main > article:first-of-type a {
 	background-color: #fff;
 	border: 2px solid #000;
 	color: #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 #photo-albums:hover{
@@ -251,10 +259,12 @@ main > article:first-of-type a {
 footer {
 	width: 100%;
 	padding: 16px;
+	padding: 16px;
 	padding: 1rem;
 	border-top: 2px solid #000;
 	color: #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -280,7 +290,8 @@ footer:hover *{
 
 footer *{
 	color: #000;
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 footer address {
 	-webkit-box-ordinal-group: 2;
@@ -328,8 +339,10 @@ footer ul li {
 	/* main */
 	main {
 	    width: 100%;
+	    padding: 0 .5em;
 	}
 	
+
 	/* password */ 
 	#password{
 		width: 100%;
