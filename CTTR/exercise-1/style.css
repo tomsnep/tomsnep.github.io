@@ -20,6 +20,8 @@ h1 {
 	box-sizing: border-box;
 }
 
+/* body */
+
 body {
 	max-width: 100%;
 	display: -webkit-box;
@@ -44,11 +46,30 @@ body {
 /* header */
 body > header {
 	width: 20%;
-	background-color: #2E5284;
+	border: 2px solid #000;
+	border-left: 0;
+	border-top: 0;
+	color: #000;
+	transition: .5s all ease;
+}
+
+body > header:hover{
+	background-color: #BB2253;
+	color: #fff;
+	border-left: 0;
+	border-top: 0;
+}
+
+body > header:hover a{
+	color: #fff;
+	fill: #fff;
+}
+
+body > header:hover img{
+	border: 5px solid #fff;
 }
 
 body > header h1 {
-	color: white;
 	text-align: center;
 	margin-top: .5em;
 	font-family: Ampersand, Helvetica, sans-serif;
@@ -62,11 +83,11 @@ body > header figure {
 body > header figure img {
 	width: 50%;
 	border-radius: 50%;
-	border: 5px solid #6D86B3;
+	border: 5px solid #EC185D;
+	transition: .5s all ease;
 }
 
 body > header p {
-	color: #fff;
 	text-align: center;
 }
 
@@ -79,6 +100,7 @@ body > header nav ul li {
 	list-style-type: none;
 	vertical-align: middle;
 	border-bottom: 1px solid rgba(255,255,255,0.2);
+	transition: .5s all ease;
 }
 
 body > header nav ul li:hover {
@@ -87,7 +109,8 @@ body > header nav ul li:hover {
 
 body > header nav ul li a {
 	text-decoration: none;
-	color: #fff;
+	color: #000;
+	transition: .5s all ease;
 }
 
 body > header nav ul li svg {
@@ -96,7 +119,7 @@ body > header nav ul li svg {
 }
 
 a[href="#profile-picture"], a[href="#password"], a[href="#photo-albums"], a[href="#find-friends"] {
-	fill: #6D86B3;
+	fill: #EC185D;
 }
 
 /* main */
@@ -110,11 +133,18 @@ main {
 main > article:first-of-type {
 	margin-top: 1em;
 	padding: 2em;
-	background-color: #6D86B3;
+	color: #000;
+	border: 2px solid #000;
+	position: relative;
+	transition: .5s all ease;
+}
+
+main > article:first-of-type:hover{
+	background-color: #FFB383;
 	color: #fff;
 }
 
-main > article:first-of-type header h1 {
+main > article:first-of-type header h1{
 	font-size: 2em;
 }
 
@@ -133,13 +163,17 @@ main > article:first-of-type p {
 	margin-top: 1em;
 }
 
+main > article:first-of-type a {
+	color: #000;
+}
+
 /* password */
 #password {
 	width: 25%;
 	margin: 2em 0;
 	padding: 16px;
 	padding: 1rem;
-	border: 2px solid #6D86B3;
+	border: 2px solid #000;
 }
 
 #password header {
@@ -159,7 +193,11 @@ main > article:first-of-type p {
 	width: 100%;
 	margin: 1em 0;
 	border: none;
-	border-bottom: 2px inset #6D86B3;
+	border-bottom: 2px inset #000;
+}
+#password:hover button{
+	background-color: #FFB383;
+	color: #fff;
 }
 
 #password fieldset label input:focus {
@@ -169,11 +207,11 @@ main > article:first-of-type p {
 #password fieldset button {
 	margin: 1em 0;
 	padding: 1em;
-	background-color: #6D86B3;
-	color: white;
+	background-color: #fff;
+	color: #000;
 	font-size: 1em;
-	border: none;
-	border-radius: .5em;
+	border: 2px solid #000;
+	transition: .5s all ease;
 }
    
 
@@ -182,12 +220,19 @@ main > article:first-of-type p {
 	margin: 2em 0;
 	padding: 2em 0;
 	text-align: center;
-	background-color: #6D86B3;
+	background-color: #fff;
+	border: 2px solid #000;
+	color: #000;
+	transition: .5s all ease;
+}
+
+#photo-albums:hover{
+	background-color: #FF9171;
+	color: #fff;
 }
 
 #photo-albums header {
 	margin: 0 0 1em 2em;	
-	color: white;
 	text-align: left;
 }
 
@@ -195,7 +240,6 @@ main > article:first-of-type p {
 	width: 45%;
 	margin: 0 0.5em;
 	display: inline-block;
-	color: white;
 }
 
 #photo-albums figure img {
@@ -208,6 +252,9 @@ footer {
 	width: 100%;
 	padding: 16px;
 	padding: 1rem;
+	border-top: 2px solid #000;
+	color: #000;
+	transition: .5s all ease;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -217,14 +264,23 @@ footer {
 	-webkit-flex-direction: row;
 	    -ms-flex-direction: row;
 	        flex-direction: row;
-	background-color: #C7C7C7;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
 }
-footer * {
-	color: white;
+
+footer:hover{
+	background-color: #BB2253;
+}
+
+footer:hover *{
+	color: #fff;
+}
+
+footer *{
+	color: #000;
+	transition: .5s all ease;
 }
 footer address {
 	-webkit-box-ordinal-group: 2;
@@ -273,12 +329,12 @@ footer ul li {
 	main {
 	    width: 100%;
 	}
-
-	/* password */
+	
+	/* password */ 
 	#password{
 		width: 100%;
 	}
-	
+
 	/* footer */ 
 	footer {
 		-webkit-box-orient: vertical;
