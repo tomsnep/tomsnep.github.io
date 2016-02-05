@@ -46,28 +46,12 @@ body {
 /* header */
 body > header {
 	width: 20%;
-	border: 2px solid #000;
 	border-left: 0;
 	border-top: 0;
-	color: #000;
+	background-color: #4CBA9C;
+	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
-}
-
-body > header:hover{
-	background-color: #BB2253;
-	color: #fff;
-	border-left: 0;
-	border-top: 0;
-}
-
-body > header:hover a{
-	color: #fff;
-	fill: #fff;
-}
-
-body > header:hover img{
-	border: 5px solid #fff;
 }
 
 body > header h1 {
@@ -84,7 +68,7 @@ body > header figure {
 body > header figure img {
 	width: 50%;
 	border-radius: 50%;
-	border: 5px solid #EC185D;
+	border: 5px solid #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
 }
@@ -112,7 +96,8 @@ body > header nav ul li:hover {
 
 body > header nav ul li a {
 	text-decoration: none;
-	color: #000;
+	fill: #4CBA9C;
+	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
 }
@@ -122,14 +107,11 @@ body > header nav ul li svg {
 	height: 1.5em;
 }
 
-a[href="#profile-picture"], a[href="#password"], a[href="#photo-albums"], a[href="#find-friends"] {
-	fill: #EC185D;
-}
-
 /* main */
 main {
 	width: 80%;
 	padding: 0 2em;
+	color: #737372;
 }
 
 
@@ -137,16 +119,10 @@ main {
 main > article:first-of-type {
 	margin-top: 1em;
 	padding: 2em;
-	color: #000;
-	border: 2px solid #000;
+	border-bottom: 2px solid #97D5BC;
 	position: relative;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
-}
-
-main > article:first-of-type:hover{
-	background-color: #FFB383;
-	color: #fff;
 }
 
 main > article:first-of-type header h1{
@@ -179,7 +155,8 @@ main > article:first-of-type a {
 	padding: 16px;
 	padding: 16px;
 	padding: 1rem;
-	border: 2px solid #000;
+	border: 2px solid #737372;
+	color: #737372;
 }
 
 #password header {
@@ -198,12 +175,10 @@ main > article:first-of-type a {
 	display: block;
 	width: 100%;
 	margin: 1em 0;
+	padding: .5em;
 	border: none;
-	border-bottom: 2px inset #000;
-}
-#password:hover button{
-	background-color: #FFB383;
-	color: #fff;
+	border-bottom: 2px inset #4CBA9C;
+	color: #4CBA9C;
 }
 
 #password fieldset label input:focus {
@@ -214,13 +189,18 @@ main > article:first-of-type a {
 	margin: 1em 0;
 	padding: 1em;
 	background-color: #fff;
-	color: #000;
+	color: #737372;
 	font-size: 1em;
-	border: 2px solid #000;
+	border: 2px solid #737372;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
+}  
+
+#password fieldset button:hover{
+	background-color: #4CBA9C;
+	border-color: #4CBA9C;
+	color: #fff;
 }
-   
 
 /* photo-albums */
 #photo-albums {
@@ -228,15 +208,9 @@ main > article:first-of-type a {
 	padding: 2em 0;
 	text-align: center;
 	background-color: #fff;
-	border: 2px solid #000;
-	color: #000;
+	border-bottom: 2px solid #97D5BC;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
-}
-
-#photo-albums:hover{
-	background-color: #FF9171;
-	color: #fff;
 }
 
 #photo-albums header {
@@ -254,15 +228,14 @@ main > article:first-of-type a {
 	width: 100%;
 }
 
-
 /* footer */ 
 footer {
 	width: 100%;
 	padding: 16px;
 	padding: 16px;
 	padding: 1rem;
-	border-top: 2px solid #000;
-	color: #000;
+	background-color: #4CBA9C;
+	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
 	display: -webkit-box;
@@ -280,16 +253,8 @@ footer {
 	        justify-content: space-between;
 }
 
-footer:hover{
-	background-color: #BB2253;
-}
-
-footer:hover *{
-	color: #fff;
-}
-
 footer *{
-	color: #000;
+	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
 }
