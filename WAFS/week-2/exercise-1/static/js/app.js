@@ -20,12 +20,11 @@
 	   .cache('false')
 	   .on('success', function(data){
 
-	   	var photos = {};
-
+	   	var photos;
 	   	photos = data;
 
 	   	console.log(photos);
-	   	
+
 	   //     for (var i = 0; i < 6; i++) {
 
 	   //     		//create li item
