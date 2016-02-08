@@ -20,8 +20,16 @@
 	   .cache('false')
 	   .on('success', function(data){
 	       for (var i = 0; i < 6; i++) {
-	             $(".popular").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");
+	             // $(".popular").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");
+	             var node = document.createElement("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");                 // Create a <li> node
+        
+				document.querySelector(".popular").appendChild(node);     
 	       }
 	   })
 	   .go();
 })();
+
+
+var node = document.createElement("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");                 // Create a <li> node
+        
+document.querySelector(".popular").appendChild(node);     
