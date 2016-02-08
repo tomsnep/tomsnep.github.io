@@ -23,7 +23,7 @@
 	             // $(".popular").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");
 	            
 	            var li = document.createElement('li');
-	           	li.innerHTML = <a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a>;
+	           	li.innerHTML = "<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a>;"
         
 				document.querySelector(".popular").appendChild(li);     
 	       }
