@@ -14,12 +14,14 @@
   //     });
 	
 
-	 aja()
-		  .url('https://api.instagram.com/v1/media/popular?access_token=806401368.f59def8.e8efe19844fd46238d592f9f20216f88')
-		  .on('success', function(data){
-		      console.log('data van amsterdam is' + data);
-		  })
-		  // .type('jsonp')
-		  .go();
-
+	aja()
+	   .url('https://api.instagram.com/v1/media/popular?access_token=806401368.5aa13be.4a08df065cbb41469c9cc20041432d3b')
+	   .type('jsonp')
+	   .cache('false')
+	   .on('success', function(data){
+	       for (var i = 0; i < 6; i++) {
+	             $(".popular").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");
+	       }
+	   })
+	   .go();
 })();
