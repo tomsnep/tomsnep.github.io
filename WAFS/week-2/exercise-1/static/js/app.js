@@ -21,11 +21,23 @@
 	   .on('success', function(data){
 	       for (var i = 0; i < 6; i++) {
 	             // $(".popular").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");
-	             var node = document.createElement("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a></li>");                 // Create a <li> node
+	            
+	            var li = document.createElement('li');
+	           	li.innerHTML = <a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a>;
         
-				document.querySelector(".popular").appendChild(node);     
+				document.querySelector(".popular").appendChild(li);     
 	       }
 	   })
 	   .go();
 })();
   
+
+// function appendHtml(el, str) {
+//   var li = document.createElement('li');
+//   div.innerHTML = <a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url +"'></img></a>;
+//   while (div.children.length > 0) {
+//     el.appendChild(div.children[0]);
+//   }
+// }
+// var html = '<h1 id="title">Some Title</h1><span style="display:inline-block; width=100px;">Some arbitrary text</span>';
+// appendHtml(document.body, html); // "body" has two more children - h1 and span.
