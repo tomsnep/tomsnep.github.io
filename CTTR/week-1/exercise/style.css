@@ -53,34 +53,31 @@ body > header {
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
 }
-
-body > header h1 {
+header h1 {
 	text-align: center;
 	margin-top: .5em;
 	font-family: Ampersand, Helvetica, sans-serif;
 }
-
-body > header figure {
+header figure {
 	margin: .5em 0;
 	text-align: center;
 }
 
-body > header figure img {
+header figure img {
 	width: 50%;
 	border-radius: 50%;
 	border: 5px solid #fff;
 }
 
-body > header p {
+header p {
 	text-align: center;
 }
 
-body > header nav {
+header nav {
 	margin-top: 2em;
 }
 
-body > header nav ul li {
-	padding: 1em 1.6em;
+nav ul li {
 	list-style-type: none;
 	vertical-align: middle;
 	border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -88,11 +85,9 @@ body > header nav ul li {
 	        transition: .5s all ease;
 }
 
-body > header nav ul li:hover {
-	background-color: rgba(255,255,255,0.1);
-}
-
-body > header nav ul li a {
+ul li a {
+	display: block;
+	padding: 1em 1.6em;
 	text-decoration: none;
 	fill: #fff;
 	color: #fff;
@@ -100,7 +95,11 @@ body > header nav ul li a {
 	        transition: .5s all ease;
 }
 
-body > header nav ul li svg {
+nav ul a:hover {
+	background-color: rgba(255,255,255,0.1);
+}
+
+ul li svg {
 	width: 1.5em;
 	height: 1.5em;
 }
@@ -114,33 +113,34 @@ main {
 
 
 /* first article */
-main > article:first-of-type {
+article:first-of-type {
 	margin-top: 1em;
 	padding: 2em;
 	border-bottom: 2px solid #97D5BC;
 	position: relative;
 }
 
-main > article:first-of-type header h1{
+article:first-of-type header h1{
 	font-size: 2em;
+	text-align: left;
 }
 
-main > article:first-of-type header h1 span {
+header h1 span {
 	font-size: .8em;
 	font-weight: lighter;
 }
 
-main > article:first-of-type header h2 {
+article:first-of-type header h2 {
 	margin: .5em 0;
 	font-weight: lighter;
 	font-style: italic;
 }
 
-main > article:first-of-type p {
+article:first-of-type p {
 	margin-top: 1em;
 }
 
-main > article:first-of-type a {
+article:first-of-type a {
 	color: #000;
 }
 
@@ -148,8 +148,6 @@ main > article:first-of-type a {
 #password {
 	width: 25%;
 	margin: 2em 0;
-	padding: 16px;
-	padding: 16px;
 	padding: 1rem;
 	border: 2px solid #737372;
 	color: #737372;
@@ -159,15 +157,15 @@ main > article:first-of-type a {
 	margin: 1em 0;
 }
 
-#password fieldset {
+fieldset {
 	border: none;
 }
 
-#password fieldset legend {
+fieldset legend {
 	margin: 1em 0;
 }
 
-#password fieldset label input {
+fieldset label input {
 	display: block;
 	width: 100%;
 	margin: 1em 0;
@@ -177,11 +175,11 @@ main > article:first-of-type a {
 	color: #4CBA9C;
 }
 
-#password fieldset label input:focus {
+fieldset label input:focus {
     outline: none;
 }
 
-#password fieldset button {
+fieldset button {
 	margin: 1em 0;
 	padding: 1em;
 	background-color: #fff;
@@ -192,7 +190,7 @@ main > article:first-of-type a {
 	        transition: .5s all ease;
 }  
 
-#password fieldset button:hover{
+fieldset button:hover{
 	background-color: #4CBA9C;
 	border-color: #4CBA9C;
 	color: #fff;
@@ -263,7 +261,7 @@ footer ul li {
 
 /* mediaqueries */
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 60em) {
 	
 	/* header */
 	body > header{
@@ -318,12 +316,12 @@ footer ul li {
 		padding: .5em 0;
 	}
 
-	footer > nav, footer > ul {
+	footer > nav{
 		margin-bottom: 1em;
 	}
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 40em) {
 	#photo-albums figure {
 	    width: 80%;
 	}
