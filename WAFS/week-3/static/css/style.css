@@ -1,0 +1,105 @@
+/* http://colorhunt.co/c/13136 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+#nav ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#nav ul li {
+	width: 25%;
+	padding: .5em 1em;
+	list-style-type: none;
+	text-align: center;
+	color: black;
+	margin: .5em;
+	border: 2px solid #88304E;
+	border-radius: 10px;
+}
+
+#nav ul li a {
+	color: #000;
+	text-decoration: none;
+	font-size: 1.5;
+	font-family: sans-serif;
+}
+#nav ul li a:target{
+	color: red
+}
+
+.menu-active {
+	border-bottom: 2px solid #88304E;
+}
+/* main */
+
+/* loader */ 
+.loader{
+	display: none;
+}
+
+.loader-active{
+	display: block;
+	width: ;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+/* effects */
+.scale-img{
+	transform: scale(1.1);
+}
+main > section {
+	display: none;
+}
+
+#startscreen {
+	width: 100%;
+	height: 80vh;
+	background-color: #424141;
+}
+
+#photo-feed {
+	width: 100%;
+	height: 80vh;
+	/*background-color: grey*/
+}
+
+
+.photoItem {
+	width: 25em;
+	display: inline-block;
+}
+.photoItem img {
+	max-width: 100%;
+}
+
+.photoItem span {
+	display: block;
+	max-width: 100%;
+}
+
+.photo-detail-view-video {
+	display: none;
+}
+
+.photo-detail-view-img {
+	display: none;
+}
+
+
+.active {
+	display: block;
+}
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="static/css/style.css">
+	<script src="static/libs/aja.min.js"></script> 
+	<script src="static/libs/transparency.min.js"></script> 
+	<script src="static/libs/routie.js"></script> 
+	<script src="static/libs/underscore-min.js"></script>
+	<script src="static/libs/hammer.min.js"></script>
+	<script src="static/libs/shake.js"></script>
+</head>
+<body>
+	<section id="nav">
+		<ul>
+			<li>
+				<a href="#user-search">
+					Search on user
+				</a>
+			</li>
+			<li>
+				<a href="#tag-search">
+					Search on tag
+				</a>
+			</li>
+		</ul>
+	</section>
+	<main>
+		<div class="loader">
+			<img src="static/assets/img/loader.gif" alt="loader">
+		</div>
+		<section id="user-search">
+			<h1>Search for a user</h1>
+			<form action="">
+				<input type="text" class="search-user-input" placeholder="insert a username"></input>
+				<input type="submit" class="search-user-submit"></input>
+			</form>
+
+			<div id="user-gallery">
+				<h1 data-bind="tagTitle"></h1>
+				<ul id="user-gallery-ul">
+	                <li data-bind="userId" class="userItem">
+	                    <a href="" data-bind="userLink">
+	                        <img data-bind="userThumbnail"/>
+	                        <span data-bind="username"></span>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+		
+	        <div id="user-detail-view">
+	            <a href="" data-bind="photoLink">
+                    <img data-bind="photoImage"/>
+                    <span data-bind="photoLikes"></span>
+                    <span data-bind="photoTitle"></span>
+                    <span data-bind="photoUser"></span>
+                    <span data-bind="fallbackError"></span>
+	            </a>
+	        </div>
+
+		</section>
+
+		<section id="user-feed">
+			
+			<div id="user-info">
+				<img data-bind="profilePicture"/>
+				<span data-bind="username"></span>
+				<span data-bind="media"></span>
+				<span data-bind="followers"></span>
+				<span data-bind="follows"></span>
+				<a data-bind="website" target="_blank"></a>
+			</div>
+			
+			<div id="user-photo-feed">
+				<ul>
+	                <li data-bind="photoId" class="photoItem">
+	                    <a href="" data-bind="photoLink">
+	                        <img data-bind="imgSrc"/>
+	                        <span data-bind="likes">
+	                    </a>
+	                </li>
+	            </ul>
+	        </div> 
+
+		</section>
+
+		<section id="tag-search">
+			<h1>Search for on a tag</h1>
+			<form action="">
+				<input type="text" class="search-input" placeholder="insert a tag"></input>
+				<input type="submit" class="search-submit"></input>
+			</form>
+			
+
+			<div id="photo-detail-view">
+	            <a href="" data-bind="photoLink">
+                    <img data-bind="photoImage" class="photo-detail-view-img"/>
+                    <video data-bind="photoVideo" class="photo-detail-view-video" controls autoplay></video>
+                    <span data-bind="photoLikes"></span>
+                    <span data-bind="photoTitle"></span>
+                    <span data-bind="photoUser"></span>
+	            </a>
+	        </div>
+
+			<div id="photo-gallery">
+				<h1 data-bind="tagTitle"></h1>
+				<ul id="photo-gallery-ul">
+	                <li data-bind="photoId" class="photoItem">
+	                    <a href="" data-bind="photoLink">
+	                        <img data-bind="photoThumbnail"/>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+		</section>
+	</main>
+</body>
+
+<script src="static/js/module/tag-feed.js"></script> 
+<script src="static/js/module/touch.js"></script> 
+<script src="static/js/module/loader-module.js"></script> 
+<script src="static/js/module/user-search.js"></script> 
+<script src="static/js/module/user-feed.js"></script> 
+<script src="static/js/module/user-info.js"></script>
+<script src="static/js/module/detail-view.js"></script>  
+<script src="static/js/module/routes.js"></script> 
+<script src="static/js/module/launcher.js"></script> 
+</html>	
