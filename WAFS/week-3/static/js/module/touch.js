@@ -25,11 +25,12 @@ var touch = (function(){
 		startShake.start();
 
 		var randomPictures = function() {
+			console.log('randomPictures is triggered')
 		    window.location.hash = '#tag-search';
 		    tagFeed.getRandomData();
 		};
-		
-		window.addEventListener('shake', randomPictures(), false);
+
+		window.addEventListener('shake', randomPictures, false);
 	};
 
 	return {
