@@ -335,14 +335,7 @@ h1[data-bind="tagTitle"]::first-letter{
 
 /* loader */ 
 .loader{
-	/*display: none;*/
-	display: block;
-	width: 140px;
-	position: absolute;
-	text-align: center;
-	left: 50%;
-	top: 75%;
-	transform: translate(-50%,-75%);
+	display: none;
 }
 
 .loader-active{
@@ -508,7 +501,8 @@ main > section {
 	}
 	/* loader */
 
-	.loader-active{
+	.loader{
+		display: block;
 		width: 400px;
 		left: 50%;
 		top: 75%;
