@@ -400,14 +400,11 @@ main > section {
 #photo-feed {
 	width: 100%;
 	height: 80vh;
-	/*background-color: grey*/
 }
 
 /*photo-detail-view*/
 
 #photo-detail-view {
-	/*max-width: 500px;*/
-    /*max-width: max-content;*/
     position: fixed;
     left: 50vw;
     top: 50vh;
@@ -415,9 +412,6 @@ main > section {
     background-color: #F9F9F9;
     text-align: center;
     padding: 1em;
-    
-   /* border: 5px solid  #4CBA9C;
-    box-shadow: 1em 1em 1em #4CBA9C;*/
 }
 
 #photo-detail-view video{
@@ -509,8 +503,6 @@ main > section {
 		border-radius: 0;
 		-moz-border-radius: 0;
 		-webkit-border-radius: 0;
-
-		border-width: 15px;
 	}
 	/* loader */
 
@@ -525,6 +517,7 @@ main > section {
 	#nav ul li{
 		width: 50%;
 		font-size: 1.5em;
+		border: 15px solid #fff;
 	}
 
 	#nav ul li a {
@@ -539,10 +532,12 @@ main > section {
 
 	.search-area-container input[type="submit"] {
 	    width: 100%;
+	    border: 15px solid #4CBA9C;
 	}
 
 	.search-area-container input[type="text"] {
 		margin: 1em 0 0 0 ;
+		border: 15px solid #4CBA9C;
 	}
 
 	#user-gallery-ul li {
@@ -595,10 +590,6 @@ main > section {
 		opacity: 1;
 	}
 
-	#user-photo-feed .photoItem img{
-		width: 75%
-	}
-
 	#user-photo-feed .user-photo-feed-heart {
 		width: 10%;
 	}
@@ -627,6 +618,10 @@ main > section {
 
 	#photo-detail-view-captions {
 		font-size: 1.7em;
+	}
+
+	.detail-view-likes .user-photo-feed-heart{
+		width: 10%;
 	}
 
 	.user-photo-feed-heart {
