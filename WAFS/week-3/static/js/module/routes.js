@@ -28,7 +28,6 @@ var routes = (function() {
 
 			    	// show user-feed section
 			    	routes.toggle('user-feed');
-
 			    },
 			    'tag-search': function() {
 			    	
@@ -56,7 +55,7 @@ var routes = (function() {
 			// remove class active for all sections
 			for (var i=0; i<allSections.length; i++) {
 				  allSections[i].classList.remove('active');
-				}
+			};
 
 			// toggle class active for the active section
 			activeSection.classList.toggle('active');

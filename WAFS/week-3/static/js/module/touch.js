@@ -1,7 +1,6 @@
 var touch = (function(){
 	var swipe = function(){
 
-			console.log('swipe initialised')
 			var el = document.querySelector('body');
 			var menuSwipe = new Hammer(el);
 
@@ -16,7 +15,6 @@ var touch = (function(){
 	};
 
 	var shake = function(){
-		console.log('shake function initialised')
 		var startShake = new Shake({
 				    threshold: 15, // optional shake strength threshold
 				    timeout: 1000 // optional, determines the frequency of event generation

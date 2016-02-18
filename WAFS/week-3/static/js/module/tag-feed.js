@@ -1,19 +1,17 @@
 var tagFeed = (function() {
 	var searchTag = function() {
-		
+
 		// select submit and input fields
 		var submit = document.querySelector('.search-submit');
 		var input = document.querySelector('.search-input');
 
 		submit.onclick = function() {
-			
-			console.log();
 			// get input value
 			var tagName = input.value;
 
 			// fire getData() & renderTagName() to get data and show search value
-			tagFeed.getData(tagName);
-			tagFeed.renderTagName(tagName);
+			getData(tagName);
+			renderTagName(tagName);
 
 			 // show loader
         	loaderModule.getLoader().classList.add('loader-active');
@@ -21,30 +19,29 @@ var tagFeed = (function() {
 	};
 	
 	var getRandomData = function() {
-			console.log('getRandomData fired')
-			// fire ajax call to get photo's containing tagName
-			aja()
-			   .url('https://api.instagram.com/v1/media/popular?access_token=806401368.5aa13be.4a08df065cbb41469c9cc20041432d3b')
-			   .type('jsonp')
-			   .cache('false')
-			   .on('success', function(data) {
-			   		
-	                var data = data.data;
 
-	               	// filter data with underscore.js
-	                var filteredData = _.map(data, function(photo) {
-	                	return _.pick(photo, 'images','id');
-	                });
+		// fire ajax call to get photo's containing tagName
+		aja()
+		   .url('https://api.instagram.com/v1/media/popular?access_token=806401368.5aa13be.4a08df065cbb41469c9cc20041432d3b')
+		   .type('jsonp')
+		   .cache('false')
+		   .on('success', function(data) {
+		   		
+                var data = data.data;
 
-	                //fire renderData() to render thumbnails
-	                tagFeed.renderData(filteredData);
+               	// filter data with underscore.js
+                var filteredData = _.map(data, function(photo) {
+                	return _.pick(photo, 'images','id');
+                });
 
-			   })
-			   .go();
+                //fire renderData() to render thumbnails
+                renderData(filteredData);
+
+		   })
+		   .go();
 	};
 
 	var getData = function(tagName) {
-			
 		// fire ajax call to get photo's containing tagName
 		aja()
 		   .url('https://api.instagram.com/v1/tags/' + tagName + '/media/recent?access_token=806401368.5aa13be.4a08df065cbb41469c9cc20041432d3b')
@@ -59,8 +56,14 @@ var tagFeed = (function() {
                 	return _.pick(photo, 'images','id');
                 });
 
-                //fire renderData() to render thumbnails
-                tagFeed.renderData(filteredData);
+                // check if username search tag exists
+                if(filteredData.length < 1){
+                	//if not, renderError()
+                	renderError(tagName);
+                } else {
+                	//fire renderData() to render thumbnails
+                	renderData(filteredData);
+                }
 
 		   })
 		   .go();
@@ -91,20 +94,37 @@ var tagFeed = (function() {
         loaderModule.getLoader().classList.remove('loader-active');
 	};
 
+	var photoGallery = document.querySelector('#photo-gallery');
+
+	var renderError = function(tagName){
+					
+		// declare directive
+		var directive = {
+
+			tagTitle: {
+				text: function(params) {
+					return 'Whoopsie, there are no pictures with the hashtag #' + tagName;
+				}
+			}
+		};
+
+		// render data
+		Transparency.render(photoGallery, tagName, directive);
+		 // hide loader
+        loaderModule.getLoader().classList.remove('loader-active');
+	};
+
 	var renderTagName = function(tagName){
-			
-		// declare target parent for transparence.js
-		var photoGallery = document.querySelector('#photo-gallery');
 		
 		// declare directive
 		var directive = {
 
 			tagTitle: {
 				text: function(params) {
-					return tagName;
+					return 'You are looking for #' + tagName;
 				}
 			}
-		}
+		};
 
 		// render data
 		Transparency.render(photoGallery, tagName, directive);
@@ -115,6 +135,8 @@ var tagFeed = (function() {
 		getRandomData,
 		getData,
 		renderData,
+		renderError,
+		photoGallery,
 		renderTagName
 	}
 })();

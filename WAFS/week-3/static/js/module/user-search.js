@@ -5,19 +5,15 @@ var userSearch = (function(loader) {
 		var submit = document.querySelector('.search-user-submit');
 		var input = document.querySelector('.search-user-input');
 
-		submit.onclick = function() {
-			
-			console.log('submit works');
-			
+		submit.onclick = function() {			
 			// get input value
 			var user = input.value;
 
 			// fire getData() and renderUser() functions to get data and show search value 
-			userSearch.getData(user);
-			userSearch.renderUser(user);
-
+			getData(user);
+			renderUser(user);
+			//hide loader
 			loaderModule.getLoader().classList.add('loader-active');
-
 		}
 	};
 
@@ -36,18 +32,21 @@ var userSearch = (function(loader) {
                 	return _.pick(photo, 'username','id', 'profile_picture');
                 });
 
-                //fire renderData() to render the list of users
-                userSearch.renderData(filteredData);
-
+                // check if username search tag exists
+                if(filteredData.length < 1){
+                	// if not, render error
+                	renderError(user);
+                } else {
+                	//fire renderData() to render the list of users
+	                renderData(filteredData);
+                }
 		   })
 		   .go();
 	};
+	
+	var userGalleryUl = document.querySelector('#user-gallery-ul');
 
-	var renderData = function(filteredData) {
-		
-		// declare target parent for transparency.js
-		var userGalleryUl = document.querySelector('#user-gallery-ul');
-		
+	var renderData = function(filteredData) {		
 		// declare directives
 		var directives = {
 
@@ -67,24 +66,40 @@ var userSearch = (function(loader) {
                 }
             }
         };
-
         // render data
-        loaderModule.getLoader().classList.remove('loader-active');
         Transparency.render(userGalleryUl, filteredData,  directives);
-		
+        // hide loader 
+        loaderModule.getLoader().classList.remove('loader-active');
 	};
 
-	var renderUser = function(user){
-		var photoGallery = document.querySelector('#user-gallery');
+	var photoGallery = document.querySelector('#user-gallery');
+
+	var renderError = function(user) {
+		
+		var directive = {
+			userNameTag: {
+				text: function(params) {
+					return 'Whoopsie, there is no account with the name: ' + user;
+				}
+			}
+		};
+		//render error
+		Transparency.render(photoGallery, user, directive);
+		// hide loader
+		loaderModule.getLoader().classList.remove('loader-active');
+	};
+
+	var renderUser = function(user) {
 		
 		var directive = {
 
-			tagTitle: {
+			userNameTag: {
 				text: function(params) {
-					return "Searching for users with the name " + user;
+					return 'You are looking for: ' + user;
 				}
 			}
-		}
+		};
+		// render user search tag 
 		Transparency.render(photoGallery, user, directive);
 	};
 
@@ -92,6 +107,8 @@ var userSearch = (function(loader) {
 		searchTag,
 		getData,
 		renderData,
+		renderError,
+		photoGallery,
 		renderUser
 	}
 })();

@@ -17,11 +17,10 @@ var detailView = (function(photoId) {
                 } else {
                 	detailView.renderPhoto(detailData)
                 }
-
-                // show loader
-                loaderModule.getLoader().classList.add('loader-active');
             })
             .go();
+
+        animations.blur();
 	};
 
 	var toggleVideo = function(detailData) {
@@ -69,7 +68,7 @@ var detailView = (function(photoId) {
             },    
             photoLikes: {
             	text: function(params) {
-            		return 'Likes:' + this.likes.count;
+            		return this.likes.count;
             	}
             },
             photoTitle: {
@@ -84,7 +83,7 @@ var detailView = (function(photoId) {
             },
             photoUser: {
             	text: function(params) {
-            		return 'Posted by:' + this.user.username;
+            		return this.user.username;
             	}
             },
             photoId: {
@@ -134,7 +133,7 @@ var detailView = (function(photoId) {
                 },
                 photoLikes: {
                 	text: function(params) {
-                		return 'Likes:' + this.likes.count;
+                		return this.likes.count;
                 	}
                 },
                 photoTitle: {
@@ -149,7 +148,7 @@ var detailView = (function(photoId) {
                 },
                 photoUser: {
                 	text: function(params){
-                		return 'Posted by:' + this.user.username;
+                		return  this.user.username;
                 	}
                 },
                 photoId: {
@@ -161,8 +160,6 @@ var detailView = (function(photoId) {
 
 	        // render data
 	        Transparency.render(photoDetail, detailData,  directives);
-            // show loader
-            loaderModule.getLoader().classList.remove('loader-active');
 		};
 
 	return {

@@ -12,10 +12,7 @@ var userFeed = (function(userId) {
            .on('success', function(data) {
                 
                var data = data.data;
-
-               //fire renderData to render the photofeed
-               userFeed.renderData(data);
-
+               renderData(data);
            })
            .go();
     };
@@ -24,7 +21,7 @@ var userFeed = (function(userId) {
 
         // declare parent target for transparency.js
         var userFeedUl = document.querySelector('#user-photo-feed ul');
-        
+
         //declare directives
         var directives = {
 
@@ -45,7 +42,7 @@ var userFeed = (function(userId) {
             },
             likes: {
                 text: function(params) {
-                    return 'Likes:' + this.likes.count;
+                    return this.likes.count;
                 }
             }
         };

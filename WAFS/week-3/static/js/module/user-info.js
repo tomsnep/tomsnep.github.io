@@ -9,17 +9,20 @@ var userInfo = (function(userId) {
            .on('success', function(data) {
                 
                 var data = data.data;
-
-                //fire renderData() to render the info about the user
-                userInfo.renderData(data);
+                console.log(data);
+                //check if there is data
+                if (data == undefined){
+                        renderError(data);
+                    } else {
+                        renderData(data);
+                   }
            })   
            .go();
     };
 
-    var renderData = function(filteredData) {
-         // declare target parent for transparency.js
-        var userInfo = document.querySelector('#user-info');
+    var userInfo = document.querySelector('#user-info');
 
+    var renderData = function(filteredData) {
         // declare directives
         var directives = {
 
@@ -30,22 +33,27 @@ var userInfo = (function(userId) {
             },
             username: {
                 text: function(params) {
-                    return 'username:' + this.username;
+                    return this.username;
                 }
             },
             media: {
                 text: function(params) {
-                    return 'media:' + this.counts.media;
+                    return 'Media: ' + this.counts.media;
                 }
             },
             followers: {
                 text: function(params) {
-                    return 'followers:' + this.counts.followed_by;
+                    return 'Followers: ' + this.counts.followed_by;
                 }
             },
             follows: {
                 text: function(params) {
-                    return 'follows:' + this.counts.follows;
+                    return 'Follows: ' + this.counts.follows;
+                }
+            },
+            bio: {
+                text: function(params){
+                    return this.bio;
                 }
             },
             website: {
@@ -54,11 +62,26 @@ var userInfo = (function(userId) {
                  }
             },
         };
-        
         // render data
         Transparency.render(userInfo, filteredData,  directives);
-    }
+    };
 
+    var renderError = function(){
+
+        var data = 'Damn, this user care\'s about privacy. Therefore you can not see any of the user\'s pictures';
+
+        var directive = {
+            errorMessage: {
+                text: function(params) {
+                    return data;
+                }
+            },
+        };
+        // render error
+        Transparency.render(userInfo, data, directive);
+         // hide loader
+        loaderModule.getLoader().classList.remove('loader-active');
+    }
 
     return {
        getData,
