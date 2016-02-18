@@ -502,7 +502,7 @@ main > section {
 	/* loader */
 
 	.loader-active{
-		width: 400px;
+		width: 600px;
 		left: 50%;
 		top: 75%;
 		transform: translate(-50%,-75%);
@@ -512,7 +512,7 @@ main > section {
 	  width: 150px;
 	  height: 150px;
   	}
-  	
+
 	/*nav*/
 	#nav ul li{
 		width: 50%;
