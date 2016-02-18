@@ -348,7 +348,7 @@ h1[data-bind="tagTitle"]::first-letter{
 	transform: translate(-50%,-75%);
 }
 
-.loader > div {
+.loader-active > div {
   width: 35px;
   height: 35px;
   background-color: #4CBA9C;
@@ -359,12 +359,12 @@ h1[data-bind="tagTitle"]::first-letter{
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-.loader .bounce1 {
+.loader-active .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-.loader .bounce2 {
+.loader-active .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
@@ -501,14 +501,18 @@ main > section {
 	}
 	/* loader */
 
-	.loader{
-		display: block;
+	.loader-active{
 		width: 400px;
 		left: 50%;
 		top: 75%;
 		transform: translate(-50%,-75%);
 	}
-
+	
+	.loader-active > div {
+	  width: 150px;
+	  height: 150px;
+  	}
+  	
 	/*nav*/
 	#nav ul li{
 		width: 50%;
