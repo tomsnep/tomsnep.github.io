@@ -333,14 +333,16 @@ h1[data-bind="tagTitle"]::first-letter{
 	transition: 1s all ease;
 }
 
-/*#photo-gallery li:hover{
-	transform: scale(1.1);
-}
-*/
-
 /* loader */ 
 .loader{
-	display: none;
+	/*display: none;*/
+	display: block;
+	width: 140px;
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	top: 75%;
+	transform: translate(-50%,-75%);
 }
 
 .loader-active{
