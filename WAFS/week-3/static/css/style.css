@@ -181,8 +181,10 @@ h1[data-bind="userNameTag"]::first-letter{
 	text-align: left;
 }
 
-#user-info img{
-	border-radius: 50%;
+#user-info img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
 }
 
 .user-detail-info{
