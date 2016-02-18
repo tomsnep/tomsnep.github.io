@@ -101,7 +101,6 @@ body {
 .search-area-container input[type="submit"]{
 	font-size: 2em;
 	cursor: pointer;
-	margin: 1em 0;
 	width: 100%;
 	padding: .5em;
 	background-color: #4CBA9C;
