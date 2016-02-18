@@ -547,6 +547,7 @@ main > section {
 
 	#user-gallery-ul li span[data-bind="username"]{
 		opacity: 1;
+		font-size: 2.5em;
 	}
 
 	/*user info */
@@ -608,7 +609,7 @@ main > section {
 		transform: translate(-50%, -50%);
 	}
 	
-	#photo-detail-view img {
+	#photo-detail-view > a > img {
 	    width: 100%;
 	}
 
@@ -620,7 +621,7 @@ main > section {
 		font-size: 1.7em;
 	}
 
-	.detail-view-likes .user-photo-feed-heart{
+	.detail-view-likes img{
 		width: 10%;
 	}
 
