@@ -3,12 +3,12 @@
 ////////////////*/
 @font-face {
     font-family: CircularStd-Bold;
-    src: url(/assets/fonts/CircularStd-Bold.otf) format('opentype');
+    src: url(static/assets/fonts/CircularStd-Bold.otf) format('opentype');
 }
 
 @font-face {
     font-family: CircularStd-Book;
-    src: url(/assets/fonts/CircularStd-Book.otf) format('opentype');
+    src: url(static/assets/fonts/CircularStd-Book.otf) format('opentype');
 }
 
 
