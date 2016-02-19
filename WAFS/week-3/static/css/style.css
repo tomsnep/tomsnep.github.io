@@ -25,9 +25,6 @@ body {
 	-webkit-overflow-scrolling: touch;
 }
 
-.colorMint{
-	color: #4CBA9C;
-}
 /*////////////////
 /////// NAV //////
 ////////////////*/
@@ -538,7 +535,7 @@ main > section {
 	}
 
 	.search-area-container input[type="text"] {
-		margin: 1em 0 0 0 ;
+		margin: 2em 0 0 0 ;
 		border: 15px solid #4CBA9C;
 	}
 
