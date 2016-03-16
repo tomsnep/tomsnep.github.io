@@ -4,58 +4,46 @@
 	<meta charset="UTF-8">
 	<title>Date Picker / Color Picker Fallback</title>
 	
-	<!-- jQuery -->
-	<script src="docs/jquery-1.9.1.js"></script>
-
-	<!-- INPUT COLOR POLYFILL: SPECTRUM -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
-
-	<!-- DATE PICKER POLYFILL AND MANY MORE: WEBSHIM -->
-	<script src="js-webshim/minified/polyfiller.js"></script> 
-
-	<script> 
-	    // load and implement all unsupported features 
-	    webshims.polyfill();
-
-	    // or only load a specific feature
-	    //webshims.polyfill('forms es5');
-	</script>
-	<script> 
-	    $(function(){
-	        // work with the HTML5 API
-	        $('input:invalid').each(function(){
-	            $(this).after( $.prop(this, 'validationMessage') );
-	        });
-	        // ...
-	    });
-	</script>
+	
 
 	<style type="text/css">
 		main {
 			width: 50vw;
 			margin: 0 auto;
 		}
+		code {
+			color: darkgrey;
+		}
 	</style>
+
+	<script src="//cdn.jsdelivr.net/caniuse-embed/1.0.0/caniuse-embed.min.js"></script>
 </head>
 <body>
 	<main>
 		<h1>HTML5 Features</h1>
 		<h2><code>&lt;input type="date"></code>&<code>&lt;input type="color"></code></h2>
+		<h3>Browser support</h3>
+		<h4>Date & Time input</h4>
+		<p class="ciu_embed" data-feature="input-datetime" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=input-datetime">Can I Use input-datetime?</a> Data on support for the input-datetime feature across the major browsers from caniuse.com. </p>
+		<h4>Color input type</h4>
+		<p class="ciu_embed" data-feature="input-color" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=input-color">Can I Use input-color?</a> Data on support for the input-color feature across the major browsers from caniuse.com. </p>
 		<form>
 			<fieldset>
 				<legend>Native</legend>
 				<label for="date">Date:</label>
-				<input type="date" id="date"></br></br>
+				<input type="date" id="date" placeholder="mm/dd/yy"></br></br>
 				<label for="color">Color:</label>
 				<input type="color" id="color">
 			</fieldset>
 			<fieldset>
 				<legend>Fallbacks</legend>
-				<p>The date input is a <code>&lt;input type="text"></code> with a placeholder to give the user feedback about the desired format, the server will check the input and if needed convert it to the desired format</p>
+				<p>When <code>&lt;input type="date"></code> is not supported the browser will see it as a <code>&lt;input type="text"></code>. You can use the placeholder attribute at the input element like this: </br><code>&lt;input type="date" placeholder="mm/dd/yy"></code> unsupported browsers will see this as: <code>&lt;input type="text" placeholder="mm/dd/yy"></code>. Now it has a placeholder to give the user feedback about the desired format, the server will check the input and if needed convert it to the desired format:</p>
 				<label for="date">Date:</label>
-					<input type="text" placeholder="dd/mm/jj">
-				
+				<input type="text" placeholder="mm/dd/yy">
+				</br>
+				</br>
+				<p>When <code>&lt;input type="color"></code> is not supported the browser will see it as a <code>&lt;input type="text"></code>. You can let users type their desired color, but a dropdown menu with a few standard colors would be better in my opinion.
+
 				<p> The color input is a <code>&lt;select></code> with a few standard colors. The server will convert the value string into a hex color code.</p>  
 				<label for="color">Color:</label>
 				<select>
@@ -70,6 +58,35 @@
 					<option value="white">white</option>
 					<option value="grey">grey</option>
 				</select>
+
+				<p>To make this happen, put both elements in your html: </p></br>
+				<code>
+					&lt;input type="color" id="colorpicker"></br>
+					</br>
+					&lt;select id="colorpicker-fallback"></br>
+						&lt;option value="red">red</option></br>
+						&lt;option value="green">green</option></br>
+						&lt;option value="blue">blue</option></br>
+						&lt;option value="orange">orange</option></br>
+						&lt;option value="purple">purple</option></br>
+						&lt;option value="pink">pink</option></br>
+						&lt;option value="brown">brown</option></br>
+						&lt;option value="black">black</option></br>
+						&lt;option value="white">white</option></br>
+						&lt;option value="grey">grey</option></br>
+					&lt;select>
+				</code>
+				<p>use simple lines of js to check if the input type attr is text and therefore show the default or fallback</p>
+				<code>
+					var colorpicker = document.querySelector('#colorpicker');</br>
+					var colorpickerAttr = colorpicker.getAttribute('type');</br>
+					var colorpickerFallback = document.querySelector('#colorpicker-fallback');</br>
+					</br>
+					if(colorpickerAttr == text){</br>
+						colorpicker.classList.add('hide');</br>
+						colorpickerFallback.classList.remove('hide');</br>
+					}
+				</code>
 			</fieldset>
 		</form>
 		<h2>Polyfills</h2>
