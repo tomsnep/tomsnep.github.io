@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date Picker / Color Picker Fallback</title>
+	
+	<!-- jQuery -->
+	<script src="docs/jquery-1.9.1.js"></script>
+
+	<!-- INPUT COLOR POLYFILL: SPECTRUM -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+	<!-- DATE PICKER POLYFILL AND MANY MORE: WEBSHIM -->
+	<script src="js-webshim/minified/polyfiller.js"></script> 
+
+	<script> 
+	    // load and implement all unsupported features 
+	    webshims.polyfill();
+
+	    // or only load a specific feature
+	    //webshims.polyfill('forms es5');
+	</script>
+	<script> 
+	    $(function(){
+	        // work with the HTML5 API
+	        $('input:invalid').each(function(){
+	            $(this).after( $.prop(this, 'validationMessage') );
+	        });
+	        // ...
+	    });
+	</script>
+
+	<style type="text/css">
+		main {
+			width: 50vw;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>HTML5 Features</h1>
+		<h2><code>&lt;input type="date"></code>&<code>&lt;input type="color"></code></h2>
+		<form>
+			<fieldset>
+				<legend>Native</legend>
+				<label for="date">Date:</label>
+				<input type="date" id="date"></br></br>
+				<label for="color">Color:</label>
+				<input type="color" id="color">
+			</fieldset>
+			<fieldset>
+				<legend>Fallbacks</legend>
+				<p>The date input is a <code>&lt;input type="text"></code> with a placeholder to give the user feedback about the desired format, the server will check the input and if needed convert it to the desired format</p>
+				<label for="date">Date:</label>
+					<input type="text" placeholder="dd/mm/jj">
+				
+				<p> The color input is a <code>&lt;select></code> with a few standard colors. The server will convert the value string into a hex color code.</p>  
+				<label for="color">Color:</label>
+				<select>
+					<option value="red">red</option>
+					<option value="green">green</option>
+					<option value="blue">blue</option>
+					<option value="orange">orange</option>
+					<option value="purple">purple</option>
+					<option value="pink">pink</option>
+					<option value="brown">brown</option>
+					<option value="black">black</option>
+					<option value="white">white</option>
+					<option value="grey">grey</option>
+				</select>
+			</fieldset>
+		</form>
+		<h2>Polyfills</h2>
+		<p>Also polyfills can be used as a fallback. You really need to think if it is worth to add a whole library for just one feature</p>
+		<p>The Polyfills you can use for the <code>&lt;input type="date"></code>&<code>&lt;input type="color"></code> are:</p>
+		<ul>
+			<li>
+				<a href="https://github.com/bgrins/spectrum">spectrum for the colorpicker</a>
+			</li>
+			<li>
+				<a href="https://github.com/aFarkas/webshim">webshim for colorpicker, datepicker and many more</a>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>
