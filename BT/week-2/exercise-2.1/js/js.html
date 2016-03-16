@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Service Workers / Local Storage Fallback</title>
+	
+	
+
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+		
+		main {
+			width: 50vw;
+			margin: 0 auto;
+		}
+		code {
+			color: darkgrey;
+		}
+		.divider {
+			width: 100%;
+			border: 5px solid grey;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		#serviceworker-warning, #text-decoration-warning {
+			font-size: 1em;
+			font-weight: bold;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Javascript Features</h1>
+		<h2><code>Service Workers</code> & <code>Local storage</code></h2>
+		<h3>Browser support</h3>
+		<h4>Service Workers</h4>
+		<p class="ciu_embed" data-feature="serviceworkers" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=serviceworkers">Can I Use serviceworkers?</a> Data on support for the serviceworkers feature across the major browsers from caniuse.com. </p>
+		<h4>Local Storage</h4>
+		<p class="ciu_embed" data-feature="namevalue-storage" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=namevalue-storage">Can I Use namevalue-storage?</a> Data on support for the namevalue-storage feature across the major browsers from caniuse.com. </p>
+		
+		<div class="divider"></div>
+		<h4>Service Workers</h4>
+		<p id="serviceworker-warning" class="hide">It seems your browser does not support Service Workers, check the browser support above</p>
+		<p>If a browser does not support service workers you could inform the user about it, but not like: service workers are not supported. They don't have a clue about what a service worker is. You'll have to find a proper way to tell the user that their experience is not optimal.</p>
+		<p>You can also store the information in local storage that should be stored in the cache.</p>
+		
+		<div class="divider"></div>
+		
+		<h4>Local Storage</h4>
+		<p>If local storage is not supported you can use a vanilla js based Polyfill or just push the data into an array</p>
+		
+		<p>A vanilla js based Polyfill:</p>
+
+		<code>
+				window.store = {</br>
+	    localStoreSupport: function() {</br>
+	        try {</br>
+	            return 'localStorage' in window && window['localStorage'] !== null;</br>
+	        } catch (e) {</br>
+	            return false;</br>
+	        }</br>
+	    },</br>
+	    set: function(name,value,days) {</br>
+	        if (days) {</br>
+	            var date = new Date();</br>
+	            date.setTime(date.getTime()+(days*24*60*60*1000));</br>
+	            var expires = "; expires="+date.toGMTString();</br>
+	        }</br>
+	        else {</br>
+	            var expires = "";</br>
+	        }</br>
+	        if( this.localStoreSupport() ) {</br>
+	            localStorage.setItem(name, value);</br>
+	        }</br>
+	        else {</br>
+	            document.cookie = name+"="+value+expires+"; path=/";</br>
+	        }</br>
+	    },</br>
+	    get: function(name) {</br>
+	        if( this.localStoreSupport() ) {</br>
+	            ret = localStorage.getItem(name);</br>
+	            //console.log(typeof ret);</br>
+	            switch (ret) {</br>
+	              case 'true': </br>
+	                  return true;</br>
+	              case 'false':</br>
+	                  return false;</br>
+	              default:</br>
+	                  return ret;</br>
+	            }</br>
+	        }</br>
+	        else {</br>
+	            var nameEQ = name + "=";</br>
+	            var ca = document.cookie.split(';');</br>
+	            for(var i=0;i < ca.length;i++) {</br>
+	                var c = ca[i];</br>
+	                while (c.charAt(0)==' ') c = c.substring(1,c.length);</br>
+	                if (c.indexOf(nameEQ) == 0) {</br>
+	                    ret = c.substring(nameEQ.length,c.length);</br>
+	                    switch (ret) {</br>
+	                      case 'true': </br>
+	                          return true;</br>
+	                      case 'false':</br>
+	                          return false;</br>
+	                      default:</br>
+	                          return ret;</br>
+	                    }</br>
+	                }</br>
+	            }</br>
+	            return null;</br>
+	        }</br>
+	    },</br>
+	    del: function(name) {</br>
+	        if( this.localStoreSupport() ) {</br>
+	            localStorage.removeItem(name);</br>
+	        }</br>
+	        else {</br>
+	            this.set(name,"",-1);</br>
+	        }</br>
+	    }</br>
+	}​</br>
+		</code>
+		<a href="http://stackoverflow.com/questions/4692245/html5-local-storage-fallback-solutions">source</a>
+		
+	</main>
+</body>
+<script src="//cdn.jsdelivr.net/caniuse-embed/1.0.0/caniuse-embed.min.js"></script>
+<script type="text/javascript">
+	var serviceWorker = 'serviceWorker' in navigator
+	 if (!serviceWorker) {
+	           var scrollsnapWarning = document.querySelector('#serviceworker-warning');
+		    	scrollsnapWarning.classList.remove('hide');
+		    	console.log('service worker not supported');
+		}
+	</script>
+</html>
