@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date Picker / Color Picker Fallback</title>
+	
+	
+
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+		
+		main {
+			width: 50vw;
+			margin: 0 auto;
+		}
+		code {
+			color: darkgrey;
+		}
+		.gallery {
+			overflow-x: auto;
+			overflow-y: hidden;
+			white-space: nowrap;
+			margin: auto;
+			font-size: 0;
+			scroll-snap-type: mandatory;
+			scroll-snap-points-x: repeat(100%);
+			-webkit-scroll-snap-type: mandatory;
+			-webkit-scroll-snap-points-x: repeat(100%);
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.divider {
+			width: 100%
+			height: 1px;
+			border: 5px solid grey;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		#scroll-snap-warning {
+			font-size: 1em;
+			font-weight: bold;
+			color: red;
+		}
+
+		.text-decoration {
+			text-decoration: underline dotted green;
+		}
+
+		.text-decoration-fallback-container {
+			width: max-content;
+			width: -moz-max-content;
+		}
+		
+		.text-decoration-fallback-container > p {
+			margin-bottom: 0;
+		}
+
+		.text-decoration-fallback-container > div {
+			width: 100%;
+			border-bottom: 1px dotted green;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>CSS3 Features</h1>
+		<h2><code>scroll-snap-points</code>&<code>text-decoration styling</code></h2>
+		<h3>Browser support</h3>
+		<h4>Scroll Snap Points</h4>
+		<p class="ciu_embed" data-feature="css-snappoints" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=css-snappoints">Can I Use css-snappoints?</a> Data on support for the css-snappoints feature across the major browsers from caniuse.com. </p>
+		<h4>Text Decoration Styling</h4>
+		<p class="ciu_embed" data-feature="input-color" data-periods="future_1,current,past_1,past_2">   <a href="//caniuse.com/#feat=input-color">Can I Use input-color?</a> Data on support for the input-color feature across the major browsers from caniuse.com. </p>
+		
+		<div class="divider"></div>
+		<h4>Scroll Snap Points</h4>
+		<p id="scroll-snap-warning" class="hide">It seems your browser does not support Scroll Snap Points, check the browser support above</p>
+		<div class="gallery">
+		  <img src="http://treehouse-codepen.s3.amazonaws.com/snap-points/1.jpg" alt="">
+		  <img src="http://treehouse-codepen.s3.amazonaws.com/snap-points/2.jpg" alt="">
+		  <img src="http://treehouse-codepen.s3.amazonaws.com/snap-points/3.jpg" alt="">
+		  <img src="http://treehouse-codepen.s3.amazonaws.com/snap-points/4.jpg" alt="">
+		</div>
+		<p>Scroll horizontally</p>
+		
+		<h5>Fallbacks</h5>
+		<p>The only fallback i found was a polyfill called <a href="https://github.com/zigotica/scrollSnapPointsPolyfill">scrollSnapPointsPolyfill</a></p>
+		<p> You may can simulate the effect with javascript but it is not a really bad experience without have scroll snap points </p>
+		<p>I think you can better take it for granted that some users don't have the snappy scroll experience rather than importing a Polyfill (wich isn't even working smoothly)</p>
+		<div class="divider"></div>
+		<h4>Text decoration styling (dotted green)</h4>
+		<h5><code>text-decoration: underline dotted green</code></h5>
+		<p class="text-decoration">Some text</p>
+		
+		<h5>Fallback</h5>
+		<div class="text-decoration-fallback-container">
+			<p>Some text</p>
+			<div></div>
+		</div>
+
+		<p>The fallback for text-decoration styling is quite simple. By making a div container around the text element and adding a empty div under the <code>&lt;p></code> you can simulate the dotted green line with css</p>
+
+		<p>
+		Html:</br>
+			<code>
+				&lt;div class="text-decoration-fallback-container"></br>
+				&lt;p>Some text&lt;/p></br>
+				&lt;div>&lt;/div></br>
+				&lt;/div></br>
+			</code></br>
+		Css:</br>
+			<code>
+				.text-decoration-fallback-container {</br>
+					width: max-content;</br>
+					width: -moz-max-content;</br>
+				}</br>
+				
+				.text-decoration-fallback-container > p {</br>
+					margin-bottom: 0;</br>
+				}</br>
+
+				.text-decoration-fallback-container > div {</br>
+					width: 100%;</br>
+					border-bottom: 1px dotted green;</br>
+				}</br>
+			</code>
+
+		</p>
+	</main>
+</body>
+<script src="//cdn.jsdelivr.net/caniuse-embed/1.0.0/caniuse-embed.min.js"></script>
+<script type="text/javascript">
+		var isScrollSnapSupported = 'scrollSnapType' in document.documentElement.style ||
+        'webkitScrollSnapType' in document.documentElement.style;
+
+		if (!isScrollSnapSupported) {
+		    var scrollsnapwarning = document.querySelector('#scroll-snap-warning');
+		    console.log(scrollsnapwarning);
+		    scrollsnapwarning.classList.remove('hide');
+		}
+
+		var textdecorationStylingSupported = 'scrollSnapType' in document.documentElement.style ||
+        'webkitScrollSnapType' in document.documentElement.style;
+
+		if (!textdecorationStylingSupported) {
+		    var scrollsnapwarning = document.querySelector('#scroll-snap-warning');
+		    console.log(scrollsnapwarning);
+		    scrollsnapwarning.classList.remove('hide');
+		}
+	</script>
+</html>
