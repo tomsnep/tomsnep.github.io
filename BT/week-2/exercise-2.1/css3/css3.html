@@ -44,12 +44,12 @@
 			display: none;
 		}
 
-		#scroll-snap-warning {
+		#scroll-snap-warning, #text-decoration-warning {
 			font-size: 1em;
 			font-weight: bold;
 			color: red;
 		}
-
+	
 		.text-decoration {
 			text-decoration: underline dotted green;
 		}
@@ -72,7 +72,7 @@
 <body>
 	<main>
 		<h1>CSS3 Features</h1>
-		<h2><code>scroll-snap-points</code>&<code>text-decoration styling</code></h2>
+		<h2><code>scroll-snap-points</code> & <code>text-decoration styling</code></h2>
 		<h3>Browser support</h3>
 		<h4>Scroll Snap Points</h4>
 		<p class="ciu_embed" data-feature="css-snappoints" data-periods="future_1,current,past_1,past_2">   <a href="http://caniuse.com/#feat=css-snappoints">Can I Use css-snappoints?</a> Data on support for the css-snappoints feature across the major browsers from caniuse.com. </p>
@@ -95,8 +95,11 @@
 		<p> You may can simulate the effect with javascript but it is not a really bad experience without have scroll snap points </p>
 		<p>I think you can better take it for granted that some users don't have the snappy scroll experience rather than importing a Polyfill (wich isn't even working smoothly)</p>
 		<div class="divider"></div>
+		
+
 		<h4>Text decoration styling (dotted green)</h4>
 		<h5><code>text-decoration: underline dotted green</code></h5>
+		<p id="text-decoration-warning" class="hide">It seems your browser does not support text-decoration-style, check the browser support above</p>
 		<p class="text-decoration">Some text</p>
 		
 		<h5>Fallback</h5>
@@ -141,18 +144,15 @@
         'webkitScrollSnapType' in document.documentElement.style;
 
 		if (!isScrollSnapSupported) {
-		    var scrollsnapwarning = document.querySelector('#scroll-snap-warning');
-		    console.log(scrollsnapwarning);
-		    scrollsnapwarning.classList.remove('hide');
+		    var scrollsnapWarning = document.querySelector('#scroll-snap-warning');
+		    scrollsnapWarning.classList.remove('hide');
 		}
 
-		var textdecorationStylingSupported = 'scrollSnapType' in document.documentElement.style ||
-        'webkitScrollSnapType' in document.documentElement.style;
+		var textdecorationStylingSupported = 'text-decoration-style' in document.documentElement.style;
 
 		if (!textdecorationStylingSupported) {
-		    var scrollsnapwarning = document.querySelector('#scroll-snap-warning');
-		    console.log(scrollsnapwarning);
-		    scrollsnapwarning.classList.remove('hide');
+		    var textdecorationWarning = document.querySelector('#text-decoration-warning');
+		    textdecorationWarning.classList.remove('hide');
 		}
 	</script>
 </html>
